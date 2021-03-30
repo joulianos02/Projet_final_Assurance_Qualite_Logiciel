@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj": {}
+    "C:\\Users\\julie\\Source\\Repos\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj": {
+    "C:\\Users\\julie\\Source\\Repos\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj",
+        "projectUniqueName": "C:\\Users\\julie\\Source\\Repos\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj",
         "projectName": "Projet_Final_AQL",
-        "projectPath": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj",
+        "projectPath": "C:\\Users\\julie\\Source\\Repos\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\Projet_Final_AQL.csproj",
         "packagesPath": "C:\\Users\\julie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\obj\\",
+        "outputPath": "C:\\Users\\julie\\Source\\Repos\\Projet_final_Assurance_Qualite_Logiciel\\Projet_Final_AQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julie\\AppData\\Roaming\\NuGet\\NuGet.Config",
