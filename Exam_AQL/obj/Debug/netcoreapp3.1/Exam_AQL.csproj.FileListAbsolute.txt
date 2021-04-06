@@ -1,0 +1,13 @@
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.exe
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.deps.json
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.runtimeconfig.json
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.runtimeconfig.dev.json
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.dll
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\bin\Debug\netcoreapp3.1\Exam_AQL.pdb
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.csprojAssemblyReference.cache
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.AssemblyInfoInputs.cache
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.AssemblyInfo.cs
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.csproj.CoreCompileInputs.cache
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.dll
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.pdb
+C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Exam_AQL\obj\Debug\netcoreapp3.1\Exam_AQL.genruntimeconfig.cache
