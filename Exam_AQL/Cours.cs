@@ -10,5 +10,12 @@ namespace Exam_AQL
         int Code;
         string Titre;
 
+
+        public Cours( int Nc, int C, string T){
+            NumeroCours = Nc;
+            Code = C;
+            Titre = T;
+        }
     }
+
 }
