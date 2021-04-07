@@ -10,7 +10,9 @@ namespace Exam_AQL
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Projet final!");
+            string Titre = "Gestion des notes des étudiants du Collège La Cité";
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+            Console.WriteLine();
         }
     }
 }
