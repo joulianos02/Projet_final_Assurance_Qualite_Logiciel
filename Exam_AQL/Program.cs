@@ -12,7 +12,7 @@ namespace Exam_AQL
         {
             string Titre = "Gestion des notes des étudiants du Collège La Cité";
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
-            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________________________________________________________");
         }
     }
 }
