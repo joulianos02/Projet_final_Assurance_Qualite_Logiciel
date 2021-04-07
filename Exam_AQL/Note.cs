@@ -6,5 +6,10 @@ namespace Exam_AQL
 {
     class Note
     {
+        string identifient;
+        string NumeroEtudiant;
+        int NumeroCours;
+        int note;
+
     }
 }
