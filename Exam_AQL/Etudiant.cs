@@ -5,10 +5,10 @@ using System.Text;
 namespace Exam_AQL
 {
     class Etudiant {
-        int NumeroEtudiant;
-        string Prenom;
-        string Nom;
-        
+        public  int NumeroEtudiant;
+        public string Prenom;
+        public string Nom;
+  
     }
 
 }
