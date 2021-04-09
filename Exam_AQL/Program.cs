@@ -90,8 +90,7 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.WriteLine("Note : ");
                     noteCours = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine();
+                  
                     Note note = new Note(identifient,numEtudiant,NumeroCours, noteCours);
                     Console.WriteLine("Étudiant Sauvegardé");
 
