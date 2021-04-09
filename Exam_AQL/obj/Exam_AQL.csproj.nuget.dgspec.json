@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj": {}
+    "C:\\Users\\mathi\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj": {
+    "C:\\Users\\mathi\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj",
         "projectName": "Exam_AQL",
-        "projectPath": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj",
-        "packagesPath": "C:\\Users\\julie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julie\\OneDrive\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\obj\\",
+        "projectPath": "C:\\Users\\mathi\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\Exam_AQL.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathi\\Documents\\GitHub\\Projet_final_Assurance_Qualite_Logiciel\\Exam_AQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\julie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

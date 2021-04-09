@@ -6,9 +6,9 @@ namespace Exam_AQL
 {
     class Cours
     {
-        int NumeroCours;
-        int Code;
-        string Titre;
+        public int NumeroCours;
+        public int Code;
+        public string Titre;
 
 
         public Cours( int Nc, int C, string T){
