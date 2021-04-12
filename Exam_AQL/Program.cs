@@ -4,46 +4,43 @@
  */
 using System;
 
-
 namespace Exam_AQL
 {
+
     class Program
-    {
+    {            
+
+
+
         static void Main(string[] args)
         {
-            String Selection = "";
+            String Selection = "";        
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
             String Afficher = "Affichage de tous les étudiants";
             String Creer = "Créer un étudiant";
+            String Selectionner = "Selection d'un étudiant";
             while (Selection != "X")
 
             {
+                Console.Clear();
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                 Console.WriteLine("________________________________________________________________________________________________________________________");
                 Console.WriteLine("Voici les commandes pour cette application : ");
                 Console.WriteLine("A - Afficher les Étudiants");
                 Console.WriteLine("C - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
-                Console.WriteLine();
-                Console.WriteLine("Une fois qu'un étudiant est selectionné, vous pouvez : ");
-                Console.WriteLine("N - Ajouter une note à l'étudiant");
-                Console.WriteLine("E - Enregistrer les données de l'étudiant dans un fichier texte");
-                Console.WriteLine("S - Sélectionner un autre étudiant");
-                Console.WriteLine("R - Retourner au menu précédent");
-                Console.WriteLine();
                 Console.WriteLine("X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
                 Selection = Console.ReadLine();
-                if (Selection == "A")
+                if (Selection.ToLower() == "a")
                 {
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Afficher.Length / 2)) + "}", Afficher));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.WriteLine("     Numéro Étudiant     |     Prénom     |     Nom     ");
-                    Console.WriteLine();
-
+                    Console.WriteLine(Etudiant.NumeroEtudiant);
                 }
                 else if (Selection.ToLower() == "c")
                 {
@@ -70,7 +67,7 @@ namespace Exam_AQL
 
                 else if (Selection.ToLower() == "n")
                 {
-                    string identifient;
+                    string identifiant;
                     int numEtudiant;
                     int NumeroCours;
                     int noteCours;
@@ -78,8 +75,8 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Creer.Length / 2)) + "}", Creer));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
-                    Console.Write("Indentifient : ");
-                    identifient = Console.ReadLine();
+                    Console.Write("Identifiant : ");
+                    identifiant = Console.ReadLine();
 
                     Console.WriteLine();
                     Console.Write("Numero Etudiant : ");
@@ -92,25 +89,50 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.WriteLine("Note : ");
                     noteCours = int.Parse(Console.ReadLine());
-                  
-                    Note note = new Note(identifient,numEtudiant,NumeroCours, noteCours);
+
+                    Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
                     Console.WriteLine("Étudiant Sauvegardé");
-
-
-
                 }
+                else if (Selection.ToLower() == "s")
+                {
 
+                    Console.Clear();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Selectionner.Length / 2)) + "}", Selectionner));
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
 
+                    Console.WriteLine("Vous pouvez selectionner un étudiant avec son  numéro d'étudiant");
+                    Console.WriteLine();
+                    Console.WriteLine("Une fois qu'un étudiant est selectionné, vous pouvez : ");
+                    Console.WriteLine("N - Ajouter une note à l'étudiant");
+                    Console.WriteLine("E - Enregistrer les données de l'étudiant dans un fichier texte");
+                    Console.WriteLine("S - Sélectionner un autre étudiant");
+                    Console.WriteLine("R - Retourner au menu précédent");
+                    Console.WriteLine();
+                    Console.Write("Veuillez entrer le numéro d'étudiant : ");
+                    try
+                    {
+                        int numEtudiant = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Erreur. Ceci n'est pas un numéro d'étudiant");
+                    }
+                }
+                else if (Selection.ToLower() == "x")
+                {
+                    break;
+                }
                 else
                 {
-                    Console.WriteLine("commande Incorrecte");
+                    Console.WriteLine("Commande Incorrecte");
                 }
                 Console.WriteLine("Appuyer sur Enter pour continuer...");
                 Console.ReadLine();
-                Console.Clear();
 
             }
 
         }
+
     }
 }
