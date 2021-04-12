@@ -5,7 +5,7 @@ using System.Text;
 namespace Exam_AQL
 {
     class Etudiant {
-        public  int NumeroEtudiant;
+        public int NumeroEtudiant;
         public string Prenom;
         public string Nom;
 
