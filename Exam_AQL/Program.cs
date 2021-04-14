@@ -42,6 +42,7 @@ namespace Exam_AQL
                     {
                         Console.WriteLine();
                         Console.WriteLine("Le fichier Etudiant.txt a été supprimé avec succès.");
+                        Console.WriteLine();
                         Console.WriteLine("Le fichier Etudiant.txt  été créer avec succès.");
 
                         File.Delete(FichierEtudiants);
@@ -146,7 +147,7 @@ namespace Exam_AQL
                 Console.Clear();
                 if (IndicateurSupression == "o")
                 {
-                    Console.WriteLine("Fichier supprimé avec succès.");
+                    Console.WriteLine("Le fichier Cours.Txt a été supprimé avec succès.");
                     Console.WriteLine("Un nouveau fichier a été créer avec succès.");
                     IndicateurSupression = "";
                     Console.WriteLine("________________________________________________________________________________________________________________________");
