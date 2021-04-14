@@ -19,11 +19,13 @@ namespace Exam_AQL
             string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
             string FichierNote = @"C:\Users\Public\Notes.txt";
             string FichierCours = @"C:\Users\Public\Cours.txt";
-
+            String SelectionSupression = "";
+            String IndicateurSupression = "";
             if (File.Exists(FichierEtudiants))
             {
-                String SelectionSupression = "";
-                while (SelectionSupression.ToLower() != "y" || SelectionSupression.ToLower() != "n")
+                
+                var yes = "o";
+                while (SelectionSupression != yes)
                 {
                     Console.WriteLine();
                     Console.WriteLine("Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
@@ -31,41 +33,31 @@ namespace Exam_AQL
                     Console.WriteLine("N - Non");
                     Console.Write("Votre réponse : ");
                     SelectionSupression = Console.ReadLine();
-                    try
+                    if (SelectionSupression.ToLower() == "o")
                     {
-                            if (SelectionSupression.ToLower() == "y")
-                            {
                         
-                                File.Delete(FichierEtudiants);
-                                Console.WriteLine("Fichier supprimé avec succès.");
-                            }
-                            else if (SelectionSupression.ToLower() == "n")
-                            {
-                                Console.WriteLine("D");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Commande Invalide");
-                            }
+                        File.Delete(FichierEtudiants);
+                        using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
+                        {
+                            swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");
+                        }
+                        IndicateurSupression = "o";
                     }
-                    catch
+                    else if (SelectionSupression.ToLower() == "n")
                     {
-                        Console.WriteLine("Erreur : Mauvaise écriture de la commande");
+                        SelectionSupression = "o";
+                        IndicateurSupression = "n";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Commande Invalide");
                     }
 
                 }
                     
             }
 
-            // Create a new file     
-            using (StreamWriter sw = File.CreateText(FichierEtudiants))
-            {
-                sw.WriteLine("New file created: {0}", DateTime.Now.ToString());
-                sw.WriteLine("Author: Mahesh Chand");
-                sw.WriteLine("Add one more line ");
-                sw.WriteLine("Add one more line ");
-                sw.WriteLine("Done! ");
-            }
+
             String Selection = "";        
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
             String Afficher = "Affichage de tous les étudiants";
@@ -77,6 +69,19 @@ namespace Exam_AQL
 
             {
                 Console.Clear();
+                if (IndicateurSupression == "o")
+                {
+                    Console.WriteLine("Fichier supprimé avec succès.");
+                    Console.WriteLine("Un nouveau fichier a été créer avec succès.");
+                    IndicateurSupression = "";
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                }
+                else if (IndicateurSupression == "n")
+                {
+                    Console.WriteLine("Parfait, le programme continura avec votre fichier.");
+                    IndicateurSupression = "";
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                }
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                 Console.WriteLine("________________________________________________________________________________________________________________________");
                 Console.WriteLine("Voici les commandes pour cette application : ");
