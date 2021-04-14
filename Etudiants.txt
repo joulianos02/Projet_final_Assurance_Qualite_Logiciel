@@ -2,4 +2,7 @@ Prénom |  Nom  |  Numéro d'étudiant  |
 Julien, Lemieux, 2689658
 Yvan, Philippe, 2695551
 William, Chenier-Faubert, 2691345
-          Julien                    Lebrun                    2689658
+Soubert, Darher, 2692359
+Toto, Laberge, 2756345
+Jean-Yves, Vachon, 1963747
+Kim, Granger, 1836453
