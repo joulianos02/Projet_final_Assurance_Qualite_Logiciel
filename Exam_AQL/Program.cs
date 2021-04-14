@@ -40,7 +40,7 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Afficher.Length / 2)) + "}", Afficher));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.WriteLine("     Numéro Étudiant     |     Prénom     |     Nom     ");
-                    Console.WriteLine(Etudiant.NumeroEtudiant);
+                    Console.WriteLine();
                 }
                 else if (Selection.ToLower() == "c")
                 {
@@ -52,17 +52,43 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Creer.Length / 2)) + "}", Creer));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Numéro Étudiant : ");
-
-                    Numero = int.Parse(Console.ReadLine());
-                    Console.WriteLine();
-                    Console.Write("Prenom : ");
-                    Prenom = Console.ReadLine();
-                    Console.WriteLine();
-                    Console.Write("Nom : ");
-                    Nom = Console.ReadLine();
-                    Console.WriteLine();
-                    Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
-                    Console.WriteLine("Étudiant Sauvegardé");
+                    try
+                    {
+                        Numero = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        Console.Write("Prenom : ");
+                        try
+                        {
+                            Prenom = Console.ReadLine();
+                            Console.WriteLine();
+                            Console.Write("Nom : ");
+                            try
+                            {
+                                Nom = Console.ReadLine();
+                                Console.WriteLine();
+                                Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
+                                Console.WriteLine("Étudiant Sauvegardé");
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Veuiller entrer un nom de famille valide.");
+                            }
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Veuiller entrer un prénom valide.");
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
                 }
 
                 else if (Selection.ToLower() == "n")
@@ -113,6 +139,10 @@ namespace Exam_AQL
                     try
                     {
                         int numEtudiant = int.Parse(Console.ReadLine());
+                        if (numEtudiant == )
+                        {
+
+                        }
                     }
                     catch
                     {
