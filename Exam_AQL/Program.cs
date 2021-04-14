@@ -4,6 +4,7 @@
  */
 using System;
 
+
 namespace Exam_AQL
 {
     class Program
@@ -14,7 +15,7 @@ namespace Exam_AQL
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
             String Afficher = "Affichage de tous les étudiants";
             String Creer = "Créer un étudiant";
-            while (Selection != "x")
+            while (Selection != "X")
 
             {
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
@@ -41,7 +42,7 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Afficher.Length / 2)) + "}", Afficher));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.WriteLine("     Numéro Étudiant     |     Prénom     |     Nom     ");
-                    Console.WriteLine("        2689659          |     Julien     |   Lemieux   ");
+                    Console.WriteLine();
 
                 }
                 else if (Selection.ToLower() == "c")
@@ -59,6 +60,7 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.Write("Prenom : ");
                     Prenom = Console.ReadLine();
+                    Console.WriteLine();
                     Console.Write("Nom : ");
                     Nom = Console.ReadLine();
                     Console.WriteLine();
