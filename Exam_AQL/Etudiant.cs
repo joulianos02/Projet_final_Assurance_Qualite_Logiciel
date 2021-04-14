@@ -6,7 +6,7 @@ using System.Text;
 namespace Exam_AQL
 {
     class Etudiant {
-        string FichierEtudiants = @"C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Etudiants.txt";
+        string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
         public int NumeroEtudiant;
         public string Prenom;
         public string Nom;
