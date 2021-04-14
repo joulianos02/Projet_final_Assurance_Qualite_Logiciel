@@ -160,6 +160,7 @@ namespace Exam_AQL
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                 Console.WriteLine("________________________________________________________________________________________________________________________");
                 Console.WriteLine("Voici les commandes pour cette application : ");
+                Console.WriteLine();
                 Console.WriteLine("A - Afficher les Étudiants");
                 Console.WriteLine("C - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
