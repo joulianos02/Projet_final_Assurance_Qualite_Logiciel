@@ -68,8 +68,8 @@ namespace Exam_AQL
                     Console.WriteLine("O - Oui");
                     Console.WriteLine("N - Non");
                     Console.Write("Votre réponse : ");
-                    SupressionEtudiant = Console.ReadLine();
-                    if (SupressionEtudiant.ToLower() == "o")
+                    SupressionNotes = Console.ReadLine();
+                    if (SupressionNotes.ToLower() == "o")
                     {
 
                         File.Delete(FichierEtudiants);
@@ -79,9 +79,9 @@ namespace Exam_AQL
                         }
                         IndicateurSupression = "o";
                     }
-                    else if (SupressionEtudiant.ToLower() == "n")
+                    else if (SupressionNotes.ToLower() == "n")
                     {
-                        SupressionEtudiant = "o";
+                        SupressionNotes = "o";
                         IndicateurSupression = "n";
                     }
                     else
@@ -99,8 +99,8 @@ namespace Exam_AQL
                     Console.WriteLine("O - Oui");
                     Console.WriteLine("N - Non");
                     Console.Write("Votre réponse : ");
-                    SupressionEtudiant = Console.ReadLine();
-                    if (SupressionEtudiant.ToLower() == "o")
+                    SupressionCours = Console.ReadLine();
+                    if (SupressionCours.ToLower() == "o")
                     {
 
                         File.Delete(FichierEtudiants);
@@ -110,9 +110,9 @@ namespace Exam_AQL
                         }
                         IndicateurSupression = "o";
                     }
-                    else if (SupressionEtudiant.ToLower() == "n")
+                    else if (SupressionCours.ToLower() == "n")
                     {
-                        SupressionEtudiant = "o";
+                        SupressionCours = "o";
                         IndicateurSupression = "n";
                     }
                     else
