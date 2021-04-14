@@ -31,12 +31,12 @@ namespace Exam_AQL
                 while (SupressionEtudiant != yes)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("  Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine(" Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
-                    Console.WriteLine("  O - Oui");
-                    Console.WriteLine("  N - Non");
+                    Console.WriteLine(" O - Oui");
+                    Console.WriteLine(" N - Non");
                     Console.WriteLine();
-                    Console.Write("  Votre réponse : ");
+                    Console.Write(" Votre réponse : ");
                     SupressionEtudiant = Console.ReadLine();
                     if (SupressionEtudiant.ToLower() == "o")                   
                     {
@@ -67,12 +67,12 @@ namespace Exam_AQL
                 while (SupressionNotes != yes)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("  Le fichier Note.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine(" Le fichier Note.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
-                    Console.WriteLine("  O - Oui");
-                    Console.WriteLine("  N - Non");
+                    Console.WriteLine(" O - Oui");
+                    Console.WriteLine(" N - Non");
                     Console.WriteLine();
-                    Console.Write("  Votre réponse : ");
+                    Console.Write(" Votre réponse : ");
                     SupressionNotes = Console.ReadLine();
                     if (SupressionNotes.ToLower() == "o")
                     {
@@ -81,6 +81,7 @@ namespace Exam_AQL
                         using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
                         {
                             swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");
+                            Console.WriteLine();
                         }
                         IndicateurSupression = "o";
                     }
@@ -100,12 +101,12 @@ namespace Exam_AQL
                 while (SupressionCours != yes)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("  Le fichier Cours.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine(" Le fichier Cours.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
-                    Console.WriteLine("  O - Oui");
-                    Console.WriteLine("  N - Non");
+                    Console.WriteLine(" O - Oui");
+                    Console.WriteLine(" N - Non");
                     Console.WriteLine();
-                    Console.Write("  Votre réponse : ");
+                    Console.Write(" Votre réponse : ");
                     SupressionCours = Console.ReadLine();
                     if (SupressionCours.ToLower() == "o")
                     {
@@ -113,8 +114,7 @@ namespace Exam_AQL
                         File.Delete(FichierEtudiants);
                         using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
                         {
-                            swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");
-                            Console.WriteLine();
+                            swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");                          
                         }
                         IndicateurSupression = "o";
                     }
@@ -217,6 +217,7 @@ namespace Exam_AQL
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Afficher.Length / 2)) + "}", Afficher));
+                    Console.WriteLine();
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     using (StreamReader sr = File.OpenText(FichierEtudiants))
                     {
