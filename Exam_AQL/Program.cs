@@ -19,23 +19,28 @@ namespace Exam_AQL
             string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
             string FichierNote = @"C:\Users\Public\Notes.txt";
             string FichierCours = @"C:\Users\Public\Cours.txt";
-            String SelectionSupression = "";
+            String SupressionEtudiant = "";
+            String SupressionNotes = "";
+            String SupressionCours = "";
             String IndicateurSupression = "";
+
             if (File.Exists(FichierEtudiants))
             {
                 
                 var yes = "o";
-                while (SelectionSupression != yes)
+                while (SupressionEtudiant != yes)
                 {
                     Console.WriteLine();
                     Console.WriteLine("Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine("O - Oui");
                     Console.WriteLine("N - Non");
                     Console.Write("Votre réponse : ");
-                    SelectionSupression = Console.ReadLine();
-                    if (SelectionSupression.ToLower() == "o")
+                    SupressionEtudiant = Console.ReadLine();
+                    if (SupressionEtudiant.ToLower() == "o")                   
                     {
-                        
+                        Console.WriteLine("Le fichier Etudiant.txt a été supprimé avec succès.");
+                        Console.WriteLine("Le fichier Etudiant.txt  été créer avec succès.");
+
                         File.Delete(FichierEtudiants);
                         using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
                         {
@@ -43,9 +48,10 @@ namespace Exam_AQL
                         }
                         IndicateurSupression = "o";
                     }
-                    else if (SelectionSupression.ToLower() == "n")
+                    else if (SupressionEtudiant.ToLower() == "n")
                     {
-                        SelectionSupression = "o";
+                        Console.WriteLine("Parfait, le programme continura avec votre fichier Etudiant.txt.");
+                        SupressionEtudiant = "o";
                         IndicateurSupression = "n";
                     }
                     else
@@ -54,7 +60,68 @@ namespace Exam_AQL
                     }
 
                 }
-                    
+                //Supression du fichier note//
+                while (SupressionNotes != yes)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Le fichier Note.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine("O - Oui");
+                    Console.WriteLine("N - Non");
+                    Console.Write("Votre réponse : ");
+                    SupressionEtudiant = Console.ReadLine();
+                    if (SupressionEtudiant.ToLower() == "o")
+                    {
+
+                        File.Delete(FichierEtudiants);
+                        using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
+                        {
+                            swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");
+                        }
+                        IndicateurSupression = "o";
+                    }
+                    else if (SupressionEtudiant.ToLower() == "n")
+                    {
+                        SupressionEtudiant = "o";
+                        IndicateurSupression = "n";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Commande Invalide");
+                    }
+
+                }
+
+                // Supression du ficher Cours//
+                while (SupressionCours != yes)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Le fichier Cours.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine("O - Oui");
+                    Console.WriteLine("N - Non");
+                    Console.Write("Votre réponse : ");
+                    SupressionEtudiant = Console.ReadLine();
+                    if (SupressionEtudiant.ToLower() == "o")
+                    {
+
+                        File.Delete(FichierEtudiants);
+                        using (StreamWriter swEtudiant = File.CreateText(FichierEtudiants))
+                        {
+                            swEtudiant.WriteLine("Prénom |  Nom  |  Numéro d'étudiant  |");
+                        }
+                        IndicateurSupression = "o";
+                    }
+                    else if (SupressionEtudiant.ToLower() == "n")
+                    {
+                        SupressionEtudiant = "o";
+                        IndicateurSupression = "n";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Commande Invalide");
+                    }
+
+                }
+
             }
 
 
