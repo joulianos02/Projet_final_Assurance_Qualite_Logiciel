@@ -20,7 +20,41 @@ namespace Exam_AQL
             string FichierNote = @"C:\Users\Public\Notes.txt";
             string FichierCours = @"C:\Users\Public\Cours.txt";
 
+            if (File.Exists(FichierEtudiants))
+            {
+                Console.WriteLine("Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
+                Console.WriteLine("O - Oui");
+                Console.WriteLine("N - Non");
+                Console.Write("Votre réponse : ");
+                String SelectionSupression = Console.ReadLine();
+                try
+                {
+                    if (SelectionSupression.ToLower() == "y")
+                    {
+                        
+                        File.Delete(FichierEtudiants);
+                        Console.WriteLine("Fichier supprimé avec succès.");
+                    }
+                    else if (SelectionSupression.ToLower() == "n")
+                    {
+                        Console.WriteLine();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Erreur 101");
+                }
+            }
 
+            // Create a new file     
+            using (StreamWriter sw = File.CreateText(FichierEtudiants))
+            {
+                sw.WriteLine("New file created: {0}", DateTime.Now.ToString());
+                sw.WriteLine("Author: Mahesh Chand");
+                sw.WriteLine("Add one more line ");
+                sw.WriteLine("Add one more line ");
+                sw.WriteLine("Done! ");
+            }
             String Selection = "";        
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
             String Afficher = "Affichage de tous les étudiants";
