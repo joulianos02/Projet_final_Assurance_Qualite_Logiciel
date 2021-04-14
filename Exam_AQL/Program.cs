@@ -16,10 +16,10 @@ namespace Exam_AQL
         static void Main(string[] args)
         {
             //Création du fichier texte pour les Étudiants
-            string FichierEtudiants = @"C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Etudiants.txt";
-            string FichierNote = @"C:\Users\julie\OneDrive\Documents\GitHub\Projet_final_Assurance_Qualite_Logiciel\Notes.txt";
+            string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
+            string FichierNote = @"C:\Users\Public\Notes.txt";
+            string FichierCours = @"C:\Users\Public\Cours.txt";
 
-            
 
             String Selection = "";        
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
@@ -56,24 +56,16 @@ namespace Exam_AQL
                     try
                     {
                         Prenom = Console.ReadLine();
-                        //using StreamWriter swEtudiant = new StreamWriter(FichierEtudiants, true);
-                        //{
-                            //swEtudiant.Write(Prenom);
-
                             Console.WriteLine();
                             Console.Write("Nom : ");
                             try
                             {
                                 Nom = Console.ReadLine();
-                                //swEtudiant.Write(", " + Nom);
                                 Console.WriteLine();
                                 Console.Write("Numéro Étudiant : ");
                                 try
                                 {
                                     Numero = int.Parse(Console.ReadLine());
-                                    //swEtudiant.Write(", " + Numero);
-                                    //swEtudiant.WriteLine();
-                                    //swEtudiant.Flush();
                                     Console.WriteLine();
                                     Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
                                     Console.WriteLine("Étudiant Sauvegardé");
@@ -87,7 +79,6 @@ namespace Exam_AQL
                             {
                                 Console.WriteLine("Veuiller entrer un prénom valide.");
                             }
-                        //}
                     }
                     catch
                     {
