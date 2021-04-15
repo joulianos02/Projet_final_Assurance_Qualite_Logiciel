@@ -225,7 +225,7 @@ namespace Exam_AQL
                 Console.WriteLine("e - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
                 Console.WriteLine("N - Ajouter une note à l'étudiant ");
-                Console.WriteLine("c - Ajouter un Cours ");
+                Console.WriteLine(" - Ajouter un Cours ");
                 Console.WriteLine("X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
@@ -360,7 +360,7 @@ namespace Exam_AQL
                 }
                 else if (Selection.ToLower() == "c")
                 {
-                    int Code;
+                    int NumeroEtudiant;
                     int NumeroCours;
                     string TitreDuCours;
 
@@ -373,14 +373,14 @@ namespace Exam_AQL
 
                     Console.WriteLine();
                     Console.Write("Mots de pass : ");
-                    Code = int.Parse(Console.ReadLine());
+                    NumeroEtudiant= int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
                     Console.Write("Numero de Cours : ");
                     TitreDuCours = (Console.ReadLine());
 
-                    Cours cours= new Cours(Code,NumeroCours, TitreDuCours);
-                    Console.WriteLine("Étudiant Sauvegardé");
+                    Cours cours= new Cours(NumeroEtudiant,NumeroCours, TitreDuCours);
+                    Console.WriteLine("Cours Sauvegardé");
                 }
 
                 else if (Selection.ToLower() == "x")

@@ -10,7 +10,7 @@ namespace Exam_AQL
     {
         string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
         public int NumeroCours;
-        public int Code;
+        public int NumeroEtudiant;
         public string TitreDuCours;
 
 
