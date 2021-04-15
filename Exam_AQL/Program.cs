@@ -223,6 +223,7 @@ namespace Exam_AQL
                 Console.WriteLine("A - Afficher les Étudiants");
                 Console.WriteLine("C - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
+                Console.WriteLine("N - Ajouter une note à l'étudiant ");
                 Console.WriteLine("X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
