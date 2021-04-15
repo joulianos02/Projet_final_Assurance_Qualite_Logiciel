@@ -321,15 +321,11 @@ namespace Exam_AQL
 
                     Console.WriteLine("Vous pouvez selectionner un étudiant avec son  numéro d'étudiant");
                     Console.WriteLine();
-                    Console.WriteLine("Une fois qu'un étudiant est selectionné, vous pouvez : ");
-                    Console.WriteLine("N - Ajouter un cour a l'étudiant");
-                    Console.WriteLine("N - Ajouter une note à l'étudiant");
-                    Console.WriteLine("S - Sélectionner un autre étudiant");
-                    Console.WriteLine("R - Retourner au menu précédent");
-                    Console.WriteLine();
                     Console.Write("Veuillez entrer le numéro d'étudiant : ");
-                        try
-                        {
+                    Console.WriteLine();
+                 
+                    try
+                    {
                             int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
                             using (var srEtudiant = new StreamReader(FichierEtudiants))
                             {
@@ -351,9 +347,11 @@ namespace Exam_AQL
                                     }
                                 }
                             }
-                            using (var srNote = new StreamReader(FichierNotes))
-                            {
-                                while (!srNote.EndOfStream)
+                   
+                        using (var srNote = new StreamReader(FichierNotes))
+                       
+                        {
+                              while (!srNote.EndOfStream)
                                 {
                                     var line2 = srNote.ReadLine();
                                     if (line2.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
@@ -361,19 +359,52 @@ namespace Exam_AQL
                                         Console.WriteLine();
                                         Console.WriteLine("Notes :");
                                         Console.WriteLine(line2);
+                                        Console.WriteLine();
+                                        Console.WriteLine("Veuiller entrer a nouveau le numero etudiant Pour avoir acces au cours : ");
                                         numEtudiant = int.Parse(Console.ReadLine() ?? FichierNotes);
+                                        Console.WriteLine();
+                                        
 
-                                    }
-                                    else if (srNote.EndOfStream)
+                                }
+                                    else if (srNote.EndOfStream )
                                     {
                                         Console.WriteLine();
                                         Console.WriteLine("Notes :");
                                         Console.WriteLine("L'étudiant n'a pas de note attribuée.");
-                                    }
-                                }
-                            }
-                            
+                                    
+                                    }   
+                               
+                              }
                         }
+
+                    
+
+                        using (var srCours = new StreamReader(FichierCours))
+
+                        {
+                            while (!srCours.EndOfStream)
+                            {
+                                var line2 = srCours.ReadLine();
+                                if (line2.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Cours :");
+                                    Console.WriteLine(line2);
+                                    numEtudiant = int.Parse(Console.ReadLine() ?? FichierCours);
+
+                                }
+                                else if (srCours.EndOfStream)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Cours :");
+                                    Console.WriteLine("L'étudiant n'a pas de Cours attribuée.");
+                                    Console.WriteLine("Rentrer de nouveau le Numero Etudiant Pour avoir acces au cours");
+
+                                }
+
+                            }
+                        }
+                    }
                         catch
                         {
                             Console.WriteLine("Erreur. Ceci n'est pas un numéro d'étudiant");
