@@ -18,7 +18,7 @@ namespace Exam_AQL
             //Création du fichier texte pour les Étudiants
             string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
             string FichierNotes = @"C:\Users\Public\Notes.txt";
-            string FichierCours = @"C:\Users\Public\Cours.txt";         
+            string FichierCours = @"C:\Users\Public\AjouterCours.txt";         
             String SupressionEtudiant = "";
             String SupressionNotes = "";
             String SupressionCours = "";
@@ -83,7 +83,7 @@ namespace Exam_AQL
                 while (SupressionNotes != yes)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(" Le fichier Note.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine(" Le fichier AjouterNote.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
                     Console.WriteLine(" O - Oui");
                     Console.WriteLine(" N - Non");
@@ -99,7 +99,7 @@ namespace Exam_AQL
                         File.Delete(FichierNotes);
                         using (StreamWriter swNote = File.CreateText(FichierNotes))
                         {
-                            swNote.WriteLine("Identifiant | Numéro d'étudiant | Numéro de cours | Note");
+                            swNote.WriteLine("Identifiant | Numéro d'étudiant | Numéro de cours | AjouterNote");
                             Console.WriteLine();
                         }
                     }
@@ -127,13 +127,13 @@ namespace Exam_AQL
                 }
                 IndicateurCreationNotes = "t";
             }
-            if (File.Exists(FichierCours)) // Si le fichier Cours.txt existe, aficher des options à l'utilisateur
+            if (File.Exists(FichierCours)) // Si le fichier AjouterCours.txt existe, aficher des options à l'utilisateur
             { 
-                // Supression du ficher Cours//
+                // Supression du ficher AjouterCours//
                 while (SupressionCours != yes)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(" Le fichier Cours.txt existe déjà. Souhaitez-vous le supprimer ?");
+                    Console.WriteLine(" Le fichier AjouterCours.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
                     Console.WriteLine(" O - Oui");
                     Console.WriteLine(" N - Non");
@@ -163,22 +163,25 @@ namespace Exam_AQL
 
                 }
             }
-            else //Si le fichier Cours.txt n'existe pas, le programme en crée un nouveau
+            else //Si le fichier AjouterCours.txt n'existe pas, le programme en crée un nouveau
             {
                 Console.WriteLine();
                 using (StreamWriter swCours = File.CreateText(FichierCours))
                 {
                     swCours.WriteLine("Numéro de cours |  Code  |  Titre  |");
                 }
-                IndicateurCreationCours = "t";
+                IndicateurCreationCours = "t"; // L'indicateur est égal à true
             }
 
-            String Selection = "";        
+            String Selection = ""; //La variable Selection stocke ce que l'utilisateur entre dans la console.
+            //Puisque les titres sont utilisé à plusieurs reprises, une variable leur est assignée.
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
-            String Afficher = "Affichage de tous les étudiants";
-            String Creer = "Créer un étudiant";
-            String Note = "Ajouter une note à un étudiant";
-            String Cours = "Ajouter un cours";
+            String AfficherEtudiants = "Affichage de tous les étudiants";
+            String AfficherNotes = "Affichage de toutes le notes";
+            String AfficherCours = "Affichage de tous les cours";
+            String CreerEtudiant = "Créer un étudiant";
+            String AjouterNote = "Ajouter une note à un étudiant";
+            String AjouterCours = "Ajouter un cours";
             String Selectionner = "Selection d'un étudiant";
 
             while (Selection != "X")
@@ -199,14 +202,14 @@ namespace Exam_AQL
                 }
                 if (IndicateurCreationCours == "t")
                 {
-                    Console.WriteLine(" Un nouveau fichier Cours.txt a été créer avec succès.");
+                    Console.WriteLine(" Un nouveau fichier AjouterCours.txt a été créer avec succès.");
                     Console.WriteLine();
                     IndicateurCreationCours = "";
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                 }
                 if (IndicateurSupressionCours == "o")
                 {
-                    Console.WriteLine("Le fichier Cours.Txt a été supprimé avec succès.");
+                    Console.WriteLine("Le fichier AjouterCours.Txt a été supprimé avec succès.");
                     Console.WriteLine("Un nouveau fichier a été créer avec succès.");
                     Console.WriteLine();
                     IndicateurSupressionCours = "";
@@ -214,7 +217,7 @@ namespace Exam_AQL
                 }
                 else if (IndicateurSupressionCours == "n")
                 {
-                    Console.WriteLine("Parfait, le programme continura avec votre fichier Cours.txt.");
+                    Console.WriteLine("Parfait, le programme continura avec votre fichier AjouterCours.txt.");
                     IndicateurSupressionCours = "";
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                 }
@@ -222,24 +225,81 @@ namespace Exam_AQL
                 Console.WriteLine("________________________________________________________________________________________________________________________");
                 Console.WriteLine("Voici les commandes pour cette application : ");
                 Console.WriteLine();
-                Console.WriteLine("A - Afficher les Étudiants");
+                Console.WriteLine("AE - Affiche tous les Étudiants");
+                Console.WriteLine("AN - Affiche toutes les notes");
+                Console.WriteLine("AC - Affiche toutes les cours");
+                Console.WriteLine("C  - Ajouter un AjouterCours ");
                 Console.WriteLine("E - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
                 Console.WriteLine("N - Ajouter une note à l'étudiant ");
-                Console.WriteLine("C  - Ajouter un Cours ");
+
                 Console.WriteLine("X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
                 Selection = Console.ReadLine();
-                
-                if (Selection.ToLower() == "e")
+
+                if (Selection.ToLower() == "ae")
+                {
+
+                    Console.Clear();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AfficherEtudiants.Length / 2)) + "}", AfficherEtudiants));
+                    Console.WriteLine();
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    using (StreamReader sr = File.OpenText(FichierEtudiants))
+                    {
+                        string s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            Console.WriteLine(s);
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                else if (Selection.ToLower() == "an")
+                {
+
+                    Console.Clear();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AfficherNotes.Length / 2)) + "}", AfficherNotes));
+                    Console.WriteLine();
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    using (StreamReader sr = File.OpenText(FichierNotes))
+                    {
+                        string s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            Console.WriteLine(s);
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                else if (Selection.ToLower() == "ac")
+                {
+
+                    Console.Clear();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AfficherCours.Length / 2)) + "}", AfficherCours));
+                    Console.WriteLine();
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    using (StreamReader sr = File.OpenText(FichierCours))
+                    {
+                        string s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            Console.WriteLine(s);
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                else if (Selection.ToLower() == "e")
                 {
                     String Prenom;
                     String Nom;
                     int Numero;
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Creer.Length / 2)) + "}", Creer));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (CreerEtudiant.Length / 2)) + "}", CreerEtudiant));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Prénom : ");
                     try
@@ -275,24 +335,6 @@ namespace Exam_AQL
                     }
 
                 }
-                else if (Selection.ToLower() == "a")
-                {
-
-                    Console.Clear();
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Afficher.Length / 2)) + "}", Afficher));
-                    Console.WriteLine();
-                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                    using (StreamReader sr = File.OpenText(FichierEtudiants))
-                    {
-                        string s = "";
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            Console.WriteLine(s);
-                        }
-                    }
-                    Console.WriteLine();
-                }
                 else if (Selection.ToLower() == "s")
                 {
 
@@ -309,27 +351,56 @@ namespace Exam_AQL
                     Console.WriteLine("R - Retourner au menu précédent");
                     Console.WriteLine();
                     Console.Write("Veuillez entrer le numéro d'étudiant : ");
-                    try
-                    {
-                        int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
-                        using (var sr = new StreamReader(FichierEtudiants))
+                        try
                         {
-                            while (!sr.EndOfStream)
+                            int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
+                            using (var srEtudiant = new StreamReader(FichierEtudiants))
                             {
-                                var line = sr.ReadLine();
-                                if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                while (!srEtudiant.EndOfStream)
                                 {
-                                    Console.Write("Étudiant Sélectionné : ");
-                                    Console.Write(line);
+                                    var line = srEtudiant.ReadLine();
+                                    if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                    {
+                                        Console.WriteLine();
+                                        Console.Write("Étudiant Sélectionné : ");
+                                        Console.Write(line);
+                                        
 
+                                    }
+                                    else if (srEtudiant.EndOfStream)
+                                    {
+                                        Console.WriteLine("L'étudiant n'a pas été trouvé.");
+                                    }
                                 }
                             }
+                            using (var srNote = new StreamReader(FichierNotes))
+                            {
+                                while (!srNote.EndOfStream)
+                                {
+                                    var line2 = srNote.ReadLine();
+                                    if (line2.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Notes :");
+                                        Console.WriteLine(line2);
+                                        numEtudiant = int.Parse(Console.ReadLine() ?? FichierNotes);
+
+                                    }
+                                    else if (srNote.EndOfStream)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Notes :");
+                                        Console.WriteLine("L'étudiant n'a pas de note attribuée.");
+                                    }
+                                }
+                            }
+                            
                         }
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Erreur. Ceci n'est pas un numéro d'étudiant");
-                    }
+                        catch
+                        {
+                            Console.WriteLine("Erreur. Ceci n'est pas un numéro d'étudiant");
+                        }
+                    
                 }
                 else if (Selection.ToLower() == "n")
                 {
@@ -339,21 +410,40 @@ namespace Exam_AQL
                     int noteCours;
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Note.Length / 2)) + "}", Note));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AjouterNote.Length / 2)) + "}", AjouterNote));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.Write("Veuillez entrer le numéro de l'étudiant auquel vous souhaitez assigner une note :");
+                    numEtudiant = int.Parse(Console.ReadLine());
+                    using (var sr = new StreamReader(FichierEtudiants))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            var line = sr.ReadLine();
+                            if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                            {
+                                Console.Write("Étudiant Sélectionné : ");
+                                Console.Write(line);
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("L'étudiant n'a pas été trouvé.");
+                            }
+                        }
+                    }
                     Console.Write("Identifiant : ");
                     identifiant = Console.ReadLine();
 
                     Console.WriteLine();
                     Console.Write("Numero Etudiant : ");
-                    numEtudiant = int.Parse(Console.ReadLine());
+                    
 
                     Console.WriteLine();
                     Console.Write("Numero de Cours : ");
                     NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
-                    Console.WriteLine("Note : ");
+                    Console.WriteLine("Note de l'étudiant : ");
                     noteCours = int.Parse(Console.ReadLine());
 
                     Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
@@ -368,7 +458,7 @@ namespace Exam_AQL
 
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
-                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Note.Length / 2)) + "}", Note));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AjouterCours.Length / 2)) + "}", AjouterCours));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Numero du cour : ");
                     NumeroCours = int.Parse(Console.ReadLine());
@@ -382,7 +472,7 @@ namespace Exam_AQL
                     TitreDuCours = (Console.ReadLine());
 
                     Cours cours= new Cours(NumeroEtudiant,NumeroCours, TitreDuCours);
-                    Console.WriteLine("Cours Sauvegardé");
+                    Console.WriteLine("Le cours a été sauvegardé avec succès.");
                 }
 
                 else if (Selection.ToLower() == "x")
@@ -392,7 +482,7 @@ namespace Exam_AQL
                 else
                 {
                     Console.WriteLine();
-                    Console.WriteLine("La commande entrée est incorrecte. Veuillez vérifier la syntaxe et rééssayer.");
+                    Console.WriteLine("La commande entrée est incorrecte. Veuillez vérifier la syntaxe et réessayer.");
                 }
                 Console.WriteLine();
                 Console.WriteLine("Appuyer sur n'importe quelle touche pour continuer...");
