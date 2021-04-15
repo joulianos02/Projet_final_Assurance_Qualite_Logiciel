@@ -225,7 +225,7 @@ namespace Exam_AQL
                 Console.WriteLine("e - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
                 Console.WriteLine("N - Ajouter une note à l'étudiant ");
-                Console.WriteLine("C - Ajouter un Cours ");
+                Console.WriteLine("c - Ajouter un Cours ");
                 Console.WriteLine("X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
@@ -358,7 +358,7 @@ namespace Exam_AQL
                     Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
                     Console.WriteLine("Étudiant Sauvegardé");
                 }
-                else if (Selection.ToLower() == "C")
+                else if (Selection.ToLower() == "c")
                 {
                     int Code;
                     int NumeroCours;
