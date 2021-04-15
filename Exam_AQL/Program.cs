@@ -62,7 +62,7 @@ namespace Exam_AQL
                     else
                     {
                         Console.WriteLine();
-                        Console.WriteLine("La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
+                        Console.WriteLine(" La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
                     }
 
                 }
@@ -112,7 +112,7 @@ namespace Exam_AQL
                     else
                     {
                         Console.WriteLine();
-                        Console.WriteLine("La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
+                        Console.WriteLine(" La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
                     }
 
                 }
@@ -157,7 +157,7 @@ namespace Exam_AQL
                     else
                     {
                         Console.WriteLine();
-                        Console.WriteLine("La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
+                        Console.WriteLine(" La réponse entrée est invalide. Veuillez entrer O pour oui ou N pour non.");
                     }
 
                 }
