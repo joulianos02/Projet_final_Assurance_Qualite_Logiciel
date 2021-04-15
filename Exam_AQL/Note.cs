@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Exam_AQL
 {
+    
     class Note
     {
         string FichierNotes = @"C:\Users\Public\Notes.txt";
-        string FichierEtudiant_Note = @"C:\Users\Public\Etudiant1_cours1.txt";
-
+        string FichierEtudiant_Note = @"C:\Users\Public\Cours0_Note0_0000000.txt";
+        public string renameNote = "true";
         public string identifient;
         public int NumeroEtudiant;
         public int NumeroCours;
@@ -35,8 +36,17 @@ namespace Exam_AQL
                 swEtudiant_Note.WriteLine();
                 swEtudiant_Note.Close();
             }
-
-            Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(FichierEtudiant_Note, identifient);
+            try
+            {
+                Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(FichierEtudiant_Note, identifient);
+            }
+            catch
+            {
+                Console.WriteLine("Erreur : Le fichier " + identifient + " existe déja.");
+                File.Delete(identifient);
+                identifient = "Erreur";
+            }
+            
 
             using StreamWriter swEtudiant = new StreamWriter(FichierNotes, true);
             {

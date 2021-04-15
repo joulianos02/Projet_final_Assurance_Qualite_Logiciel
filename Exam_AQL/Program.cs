@@ -23,6 +23,7 @@ namespace Exam_AQL
             String SupressionEtudiant = "";
             String SupressionNotes = "";
             String SupressionCours = "";
+            int CompteurNote = 0;
             int deuxSecondes = 2000;
             var yes = "o";
             if (File.Exists(FichierEtudiants))
@@ -353,7 +354,6 @@ namespace Exam_AQL
                               while (!srNote.EndOfStream)
                                 {
                                     var lineNote = srNote.ReadLine();
-                                    int CompteurNote = 0;
                                     if (lineNote.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
                                     {
                                         Console.WriteLine();
@@ -413,54 +413,97 @@ namespace Exam_AQL
                     int NumeroCours;
                     int noteCours;
                     string SelectionEtudiant = "f";
+                    string SelectionCours = "f";
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AjouterNote.Length / 2)) + "}", AjouterNote));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
-                        Console.Write("Veuillez entrer le numéro de l'étudiant auquel vous souhaitez assigner une note :");
-                        numEtudiant = int.Parse(Console.ReadLine() ?? FichierEtudiants);
+                    Console.Write("Veuillez entrer le numéro de l'étudiant auquel vous souhaitez assigner une note : ");
+                    numEtudiant = int.Parse(Console.ReadLine());
+                    if (numEtudiant > 9999999 || numEtudiant < 1000000)
+                    {
+                        Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
+                    }
+                    else if (numEtudiant <= 9999999 || numEtudiant >= 1000000)
+                    {
                         using (var srEtudiant = new StreamReader(FichierEtudiants))
                         {
-                            while (!srEtudiant.EndOfStream)
+                        while (!srEtudiant.EndOfStream)
+                        {
+                            var line = srEtudiant.ReadLine();
+                            if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
                             {
-                                var line = srEtudiant.ReadLine();
-                                if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
-                                {
-                                    Console.WriteLine();
-                                    Console.Write("Étudiant Sélectionné : ");
-                                    Console.Write(line);
-                                    Console.WriteLine();
-                                    SelectionEtudiant = "t";
-                                }
-                                else if (srEtudiant.EndOfStream)
-                                {
-                                    Console.WriteLine("L'étudiant n'a pas été trouvé.");
-                                }
+                                Console.WriteLine();
+                                Console.Write("Étudiant Sélectionné : ");
+                                Console.Write(line);
+                                Console.WriteLine();
+                                SelectionEtudiant = "t";
+                            }
+                            else if (srEtudiant.EndOfStream)
+                            {
+                                Console.WriteLine("L'étudiant n'a pas été trouvé.");
                             }
                         }
-                    if (SelectionEtudiant == "t")
-                    {
-                    Console.Write("Identifiant : ");
-                    identifiant = Console.ReadLine();
-
-                    Console.WriteLine();
-                    Console.Write("Numero de Cours : ");
-                    NumeroCours = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine();
-                    Console.WriteLine("Note de l'étudiant : ");
-                    noteCours = int.Parse(Console.ReadLine());
-
-                    Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
-                    
-                    Console.WriteLine("Étudiant Sauvegardé");
+                        }
+                        if (SelectionEtudiant == "t")
+                        {
+                            Console.WriteLine();
+                            Console.Write("Numero de Cours : ");
+                            NumeroCours = int.Parse(Console.ReadLine()?? FichierCours);
+                            using (var srCours = new StreamReader(FichierCours))
+                            {
+                                while (!srCours.EndOfStream)
+                                {
+                                    var line = srCours.ReadLine();
+                                    if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                    {
+                                        Console.WriteLine();
+                                        Console.Write("Cours Sélectionné : ");
+                                        Console.Write(line);
+                                        Console.WriteLine();
+                                        SelectionCours = "t";
+                                    }
+                                    else if (srCours.EndOfStream)
+                                    {
+                                        Console.WriteLine("Le cours n'existe pas. Veuillez créer un nouveau cours ou entrer un cours qui existe.");
+                                    }
+                                }
+                            }
+                            if (SelectionCours == "t")
+                            {
+                                Console.Write("Note de l'étudiant : ");
+                                noteCours = int.Parse(Console.ReadLine());
+                                Console.WriteLine();
+                            
+                                ++(CompteurNote);
+                                identifiant = "Cours" + NumeroCours + "_Note"+CompteurNote+"_" + numEtudiant;
+                                
+                                Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
+                                if (note.identifient != "Erreur")
+                                {
+                                    Console.WriteLine("La note a été attribuée à l'étudiant et est sauvegardée dans le fichier : " + identifiant + ".");
+                                }
+                                else
+                                {
+                                Thread.Sleep(deuxSecondes);
+                                }
+                                
+                            }
+                            else
+                            {
+                                Thread.Sleep(deuxSecondes);
+                            }
+                        }
+                        else
+                        {
+                            Thread.Sleep(deuxSecondes);
+                        }
                     }
                     else
                     {
-
+                        Console.WriteLine("Erreur dans l'assignation du numéro étudiant. Veuillez réessayer");
                         Thread.Sleep(deuxSecondes);
                     }
-                    
                 }
                 else if (Selection.ToLower() == "c")
                 {
