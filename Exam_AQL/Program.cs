@@ -357,6 +357,7 @@ namespace Exam_AQL
                     noteCours = int.Parse(Console.ReadLine());
 
                     Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
+                    
                     Console.WriteLine("Étudiant Sauvegardé");
                 }
                 else if (Selection.ToLower() == "c")

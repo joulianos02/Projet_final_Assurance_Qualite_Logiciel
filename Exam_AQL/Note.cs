@@ -7,22 +7,45 @@ namespace Exam_AQL
 {
     class Note
     {
+<<<<<<< Updated upstream
         
 
         string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
+=======
+        string FichierNotes = @"C:\Users\Public\Notes.txt";
+        string FichierEtudiant_Note = @"C:\Users\Public\Etudiant1_cours1.txt";
+>>>>>>> Stashed changes
         public string identifient;
         public int NumeroEtudiant;
         public int NumeroCours;
         public int note;
 
+        
         public Note(string Id, int NE, int Nc, int N)
         {
-            identifient = Id;
+            using (StreamWriter swFile = File.CreateText(FichierEtudiant_Note))
+            {
+                swFile.WriteLine("Numéro d'étudiant | Numéro de cours | Note");
+            }
+            identifient = Id + ".txt";
             NumeroEtudiant = NE;
             NumeroCours = Nc;
             note = N;
 
-            using StreamWriter swEtudiant = new StreamWriter(FichierEtudiants, true);
+            
+
+            using StreamWriter swEtudiant_Note = new StreamWriter(FichierEtudiant_Note, true);
+            {
+                swEtudiant_Note.Write(NE);
+                swEtudiant_Note.Write(", " + Nc);
+                swEtudiant_Note.Write(", " + N);
+                swEtudiant_Note.WriteLine();
+                swEtudiant_Note.Close();
+            }
+
+            Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(FichierEtudiant_Note, identifient);
+
+            using StreamWriter swEtudiant = new StreamWriter(FichierNotes, true);
             {
                 swEtudiant.Write(Id);
                 swEtudiant.Write(", " + NE);
@@ -32,10 +55,24 @@ namespace Exam_AQL
                 swEtudiant.Flush();
 
             }
+           
+            
 
 
+<<<<<<< Updated upstream
      
         }   
-    }
-}
+=======
+        }
 
+>>>>>>> Stashed changes
+    }
+       public static class FileInfoExtensions
+        {
+            public static void Rename(this FileInfo fileInfo, string newName)
+            {
+                fileInfo.MoveTo(Path.Combine(fileInfo.Directory.FullName, newName));
+            }
+        }
+
+} 
