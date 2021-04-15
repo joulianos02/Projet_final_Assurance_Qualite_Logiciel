@@ -18,7 +18,7 @@ namespace Exam_AQL
             //Création du fichier texte pour les Étudiants
             string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
             string FichierNotes = @"C:\Users\Public\Notes.txt";
-            string FichierCours = @"C:\Users\Public\Cours.txt";
+            string FichierCours = @"C:\Users\Public\Cours.txt";         
             String SupressionEtudiant = "";
             String SupressionNotes = "";
             String SupressionCours = "";
@@ -119,6 +119,7 @@ namespace Exam_AQL
             }
             else //Si le fichier Notes.txt n'existe pas, le programme en crée un nouveau
             {
+                File.Move(FichierEtudiants, FichierNotes);
                 Console.WriteLine();
                 using (StreamWriter swNotes = File.CreateText(FichierNotes))
                 {
@@ -222,7 +223,7 @@ namespace Exam_AQL
                 Console.WriteLine("Voici les commandes pour cette application : ");
                 Console.WriteLine();
                 Console.WriteLine("A - Afficher les Étudiants");
-                Console.WriteLine("e - Créer un étudiant");
+                Console.WriteLine("E - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
                 Console.WriteLine("N - Ajouter une note à l'étudiant ");
                 Console.WriteLine("C  - Ajouter un Cours ");
@@ -372,11 +373,11 @@ namespace Exam_AQL
                     NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
-                    Console.Write("Mots de pass : ");
+                    Console.Write("Code: ");
                     NumeroEtudiant= int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
-                    Console.Write("Numero de Cours : ");
+                    Console.Write("Titre du cours : ");
                     TitreDuCours = (Console.ReadLine());
 
                     Cours cours= new Cours(NumeroEtudiant,NumeroCours, TitreDuCours);

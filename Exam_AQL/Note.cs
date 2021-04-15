@@ -7,6 +7,8 @@ namespace Exam_AQL
 {
     class Note
     {
+        
+
         string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
         public string identifient;
         public int NumeroEtudiant;
@@ -32,7 +34,8 @@ namespace Exam_AQL
             }
 
 
-        }
+     
+        }   
     }
 }
 
