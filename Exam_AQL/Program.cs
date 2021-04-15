@@ -3,10 +3,8 @@
  *Date : 2021-04-06 
  */
 using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
+using System.IO;//Afin d'utiliser le Stream
+using System.Threading;//Pour permettre à l'utilisateur de lire le texte inscrit avant de continuer
 
 namespace Exam_AQL
 {
@@ -17,19 +15,26 @@ namespace Exam_AQL
         static void Main(string[] args)
         {
             //Création du fichier texte pour les Étudiants
-            string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
-            string FichierNotes = @"C:\Users\Public\Notes.txt";
-            string FichierCours = @"C:\Users\Public\Cours.txt";         
-            String SupressionEtudiant = "";
-            String SupressionNotes = "";
-            String SupressionCours = "";
-            int CompteurNote = 0;
-            int deuxSecondes = 2000;
-            var yes = "o";
-            if (File.Exists(FichierEtudiants))
+            string FichierEtudiants = @"C:\Users\Public\Etudiants.txt"; //Fichier contenant les étudiants
+            string FichierNotes = @"C:\Users\Public\Notes.txt"; //Fichier contenant toutes les notes
+            string FichierCours = @"C:\Users\Public\Cours.txt"; //Fichier contenant les cours
+            String SupressionEtudiant = ""; //Variable String pour vérifier la suppression du fichier Etudiant.txt
+            String SupressionNotes = ""; //Variable String pour vérifier la suppression du fichier Note.txt
+            String SupressionCours = ""; //Variable String pour vérifier la suppression du fichier Cours.txt
+            int CompteurNote = 0; //Compteur pour l'affichage de plusieurs notes lors de la sélection d'un Étudiant.
+            int deuxSecondes = 2000; //Variable utilisée pour arrêter le programme pendant 2000 millisecondes.
+            var yes = "o"; //Variable utilisée pour faciliter la lecture et la répétition.
+
+            /**********************************************************************************************************/
+            /*Le début du programme consiste à vérifier si les fichiers utilisés dans le programme existent dans      */
+            /*l'ordianteur de l'utilisateur. Si ils existent, le programme demande à l'utilisateur s'il il souhaite en*/
+            /*créer de nouveaux. Sinon, le programme en crée pour l'utilisateur dans C:\Users\Public\ et informe      */
+            /*l'utilisateur des changements apportées.                                                                */
+            /**********************************************************************************************************/
+            if (File.Exists(FichierEtudiants)) //Vérification de l'existence du fichier Etudiant.txt
             {
-                while (SupressionEtudiant != yes)
-                {
+                while (SupressionEtudiant != yes) //Boucle si l'utilisateur fait une faute de frappe, le programme 
+                {                                 //Recommence cette partie du code
                     Console.WriteLine();
                     Console.WriteLine(" Le fichier Etudiant.txt existe déjà. Souhaitez-vous le supprimer ?");
                     Console.WriteLine();
@@ -38,7 +43,7 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.Write(" Votre réponse : ");
                     SupressionEtudiant = Console.ReadLine();
-                    if (SupressionEtudiant.ToLower() == "o")                   
+                    if (SupressionEtudiant.ToLower() == yes)                   
                     {
                         Console.WriteLine();
                         Console.WriteLine(" Le fichier Etudiant.txt a été supprimé avec succès.");
@@ -55,7 +60,8 @@ namespace Exam_AQL
                     {
                         Console.WriteLine();
                         Console.WriteLine(" Parfait, le programme continura avec votre fichier Etudiant.txt.");
-                        SupressionEtudiant = "o";
+                        SupressionEtudiant = yes; //Puisque le C# ne compare pas les string avec || 
+                                                  //SupressionEtudiant est égal à "o"
                     }
                     else
                     {
@@ -90,7 +96,7 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.Write(" Votre réponse : ");
                     SupressionNotes = Console.ReadLine();
-                    if (SupressionNotes.ToLower() == "o")
+                    if (SupressionNotes.ToLower() == yes)
                     {
                         Console.WriteLine();
                         Console.WriteLine(" Le fichier Notes.txt a été supprimé avec succès.");
@@ -107,7 +113,7 @@ namespace Exam_AQL
                     {
                         Console.WriteLine();
                         Console.WriteLine(" Parfait, le programme continura avec votre fichier Notes.txt.");
-                        SupressionNotes = "o";
+                        SupressionNotes = yes;
                     }
                     else
                     {
@@ -142,7 +148,7 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.Write(" Votre réponse : ");
                     SupressionCours = Console.ReadLine();
-                    if (SupressionCours.ToLower() == "o")
+                    if (SupressionCours.ToLower() == yes)
                     {
 
                         File.Delete(FichierCours);
@@ -157,7 +163,7 @@ namespace Exam_AQL
                     }
                     else if (SupressionCours.ToLower() == "n")
                     {
-                        SupressionCours = "o";
+                        SupressionCours = yes;
                         Console.WriteLine("Parfait, le programme continura avec votre fichier AjouterCours.txt.");
                         Console.WriteLine();
                         Thread.Sleep(deuxSecondes);
@@ -184,7 +190,7 @@ namespace Exam_AQL
             }
 
             String Selection = ""; //La variable Selection stocke ce que l'utilisateur entre dans la console.
-            //Puisque les titres sont utilisé à plusieurs reprises, une variable leur est assignée.
+            //Puisque les titres sont utilisé à plusieurs reprises, une variable string leur est assignée.
             String Titre = "Gestion des notes des étudiants du Collège La Cité";
             String AfficherEtudiants = "Affichage de tous les étudiants";
             String AfficherNotes = "Affichage de toutes le notes";
@@ -194,9 +200,8 @@ namespace Exam_AQL
             String AjouterCours = "Ajouter un cours";
             String Selectionner = "Selection d'un étudiant";
 
-            while (Selection != "X")
-
-            {
+            while (Selection.ToLower() != "X") //Boucle while afin de permettre l'éxecution du programme j'usqu'a ce que                        
+            {                        //l'utilisateur entre x.
                 Console.Clear();
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                 Console.WriteLine("________________________________________________________________________________________________________________________");
@@ -326,7 +331,7 @@ namespace Exam_AQL
                  
                     try
                     {
-                            int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
+                        int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
 
                         if (numEtudiant > 9999999 || numEtudiant < 1000000)
                         {
