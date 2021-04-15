@@ -19,7 +19,7 @@ namespace Exam_AQL
             //Création du fichier texte pour les Étudiants
             string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
             string FichierNotes = @"C:\Users\Public\Notes.txt";
-            string FichierCours = @"C:\Users\Public\AjouterCours.txt";         
+            string FichierCours = @"C:\Users\Public\Cours.txt";         
             String SupressionEtudiant = "";
             String SupressionNotes = "";
             String SupressionCours = "";
@@ -98,7 +98,7 @@ namespace Exam_AQL
                         File.Delete(FichierNotes);
                         using (StreamWriter swNote = File.CreateText(FichierNotes))
                         {
-                            swNote.WriteLine("Identifiant | Numéro d'étudiant | Numéro de cours | AjouterNote");
+                            swNote.WriteLine("Identifiant | Numéro d'étudiant | Numéro de cours | Note");
                             Console.WriteLine();
                         }
                     }
@@ -147,7 +147,7 @@ namespace Exam_AQL
                         File.Delete(FichierCours);
                         using (StreamWriter swCours = File.CreateText(FichierCours))
                         {
-                            swCours.WriteLine("Numéro de cours |  Code  |  Titre  |");                          
+                            swCours.WriteLine("Numéro Etudiant |  Numero du cours  |  Titre du cours  |");                          
                         }
                         Console.WriteLine("Le fichier Cours.txt a été supprimé avec succès.");
                         Console.WriteLine("Un nouveau fichier Cours.txt a été créer avec succès.");
@@ -174,7 +174,7 @@ namespace Exam_AQL
                 Console.WriteLine();
                 using (StreamWriter swCours = File.CreateText(FichierCours))
                 {
-                    swCours.WriteLine("Numéro de cours |  Code  |  Titre  |");
+                    swCours.WriteLine("Numéro Etudiant |  Numero du cours |  Titre du cours  |");
                 }
                 Console.WriteLine(" Un nouveau fichier AjouterCours.txt a été créer avec succès.");
                 Console.WriteLine();
@@ -322,6 +322,7 @@ namespace Exam_AQL
                     Console.WriteLine("Vous pouvez selectionner un étudiant avec son  numéro d'étudiant");
                     Console.WriteLine();
                     Console.WriteLine("Une fois qu'un étudiant est selectionné, vous pouvez : ");
+                    Console.WriteLine("N - Ajouter un cour a l'étudiant");
                     Console.WriteLine("N - Ajouter une note à l'étudiant");
                     Console.WriteLine("S - Sélectionner un autre étudiant");
                     Console.WriteLine("R - Retourner au menu précédent");
@@ -445,12 +446,13 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AjouterCours.Length / 2)) + "}", AjouterCours));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
-                    Console.Write("Numero du cour : ");
-                    NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
-                    Console.Write("Numero de l'etudiant: ");
-                    NumeroEtudiant= int.Parse(Console.ReadLine());
+                    Console.Write("Numero Etudiant: ");
+                    NumeroEtudiant = int.Parse(Console.ReadLine());
+
+                    Console.Write("Numero du cour : ");
+                    NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
                     Console.Write("Titre du cours : ");

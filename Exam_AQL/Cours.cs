@@ -8,25 +8,26 @@ namespace Exam_AQL
 {
     class Cours
     {
-        string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
-        public int NumeroCours;
+        string FicherCours = @"C:\Users\Public\Cours.txt";
         public int NumeroEtudiant;
+        public int NumeroCours;
         public string TitreDuCours;
 
 
-        public Cours( int Nc, int Ne, string T){
-            NumeroCours = Nc;
-            NumeroEtudiant = Ne;
+        public Cours( int Ne, int Nc, string T){
+
+            NumeroEtudiant = Ne; 
+            NumeroCours = Nc;        
             TitreDuCours = T;
 
             
-            using StreamWriter swEtudiant = new StreamWriter(FichierEtudiants, true);
+            using StreamWriter swCours = new StreamWriter(FicherCours, true);
             {
-                swEtudiant.Write(Nc);
-                swEtudiant.Write(", " + Ne);
-                swEtudiant.Write(", " + T);
-                swEtudiant.WriteLine();
-                swEtudiant.Flush();
+                swCours.Write(Ne);
+                swCours.Write(", " + Nc);
+                swCours.Write(", " + T);
+                swCours.WriteLine();
+                swCours.Flush();
             }
         }
     }
