@@ -519,8 +519,16 @@ namespace Exam_AQL
                     Console.WriteLine();
                     Console.Write("Numero Etudiant: ");
                     NumeroEtudiant = int.Parse(Console.ReadLine());
+                    if (NumeroEtudiant > 9999999 || NumeroEtudiant < 1000000)
+                    {
+                        Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
+                    }
+                    else if (NumeroEtudiant <= 9999999 || NumeroEtudiant >= 1000000)
+                    {
 
-                    Console.Write("Numero du cour : ");
+                    }
+
+                        Console.Write("Numero du cour : ");
                     NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
