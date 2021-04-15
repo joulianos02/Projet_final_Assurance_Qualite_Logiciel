@@ -364,10 +364,11 @@ namespace Exam_AQL
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("La commande entrée est incorrecte. Veuillez vérifier la syntaxe et rééssayer.");
                 }
                 Console.WriteLine();
-                Console.WriteLine("Appuyer sur Enter pour continuer...");
+                Console.WriteLine("Appuyer sur n'importe quelle touche pour continuer...");
                 Console.ReadLine();
 
             }
