@@ -14,16 +14,16 @@ namespace Exam_AQL
         public string TitreDuCours;
 
 
-        public Cours( int Nc, int C, string T){
+        public Cours( int Nc, int Ne, string T){
             NumeroCours = Nc;
-            Code = C;
+            NumeroEtudiant = Ne;
             TitreDuCours = T;
 
             
             using StreamWriter swEtudiant = new StreamWriter(FichierEtudiants, true);
             {
                 swEtudiant.Write(Nc);
-                swEtudiant.Write(", " + C);
+                swEtudiant.Write(", " + Ne);
                 swEtudiant.Write(", " + T);
                 swEtudiant.WriteLine();
                 swEtudiant.Flush();
