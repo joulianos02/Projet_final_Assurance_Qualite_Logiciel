@@ -228,7 +228,7 @@ namespace Exam_AQL
                 Console.WriteLine("AE - Affiche tous les Étudiants");
                 Console.WriteLine("AN - Affiche toutes les notes");
                 Console.WriteLine("AC - Affiche toutes les cours");
-                Console.WriteLine(" C - Ajouter un AjouterCours ");
+                Console.WriteLine(" C - Ajouter un Cours ");
                 Console.WriteLine(" E - Créer un étudiant");
                 Console.WriteLine(" S - Sélectionner un étudiant");
                 Console.WriteLine(" N - Ajouter une note à l'étudiant ");
