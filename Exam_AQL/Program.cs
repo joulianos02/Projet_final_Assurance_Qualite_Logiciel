@@ -177,6 +177,7 @@ namespace Exam_AQL
             String Afficher = "Affichage de tous les étudiants";
             String Creer = "Créer un étudiant";
             String Note = "Ajouter une note à un étudiant";
+            String Cours = "Ajouter un cours";
             String Selectionner = "Selection d'un étudiant";
 
             while (Selection != "X")
@@ -221,7 +222,7 @@ namespace Exam_AQL
                 Console.WriteLine("Voici les commandes pour cette application : ");
                 Console.WriteLine();
                 Console.WriteLine("A - Afficher les Étudiants");
-                Console.WriteLine("C - Créer un étudiant");
+                Console.WriteLine("e - Créer un étudiant");
                 Console.WriteLine("S - Sélectionner un étudiant");
                 Console.WriteLine("N - Ajouter une note à l'étudiant ");
                 Console.WriteLine("X - Quitter le programme");
@@ -229,7 +230,7 @@ namespace Exam_AQL
                 Console.Write("Veuillez entrer votre commande : ");
                 Selection = Console.ReadLine();
                 
-                if (Selection.ToLower() == "c")
+                if (Selection.ToLower() == "e")
                 {
                     String Prenom;
                     String Nom;
@@ -356,7 +357,31 @@ namespace Exam_AQL
                     Note note = new Note(identifiant, numEtudiant, NumeroCours, noteCours);
                     Console.WriteLine("Étudiant Sauvegardé");
                 }
-                
+                else if (Selection.ToLower() == "C")
+                {
+                    int Code;
+                    int NumeroCours;
+                    string TitreDuCours;
+
+                    Console.Clear();
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
+                    Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Note.Length / 2)) + "}", Note));
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.Write("Numero du cour : ");
+                    NumeroCours = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.Write("Mots de pass : ");
+                    Code = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.Write("Numero de Cours : ");
+                    TitreDuCours = (Console.ReadLine());
+
+                    Cours cours= new Cours(Code,NumeroCours, TitreDuCours);
+                    Console.WriteLine("Étudiant Sauvegardé");
+                }
+
                 else if (Selection.ToLower() == "x")
                 {
                     break;
