@@ -228,12 +228,12 @@ namespace Exam_AQL
                 Console.WriteLine("AE - Affiche tous les Étudiants");
                 Console.WriteLine("AN - Affiche toutes les notes");
                 Console.WriteLine("AC - Affiche toutes les cours");
-                Console.WriteLine("C  - Ajouter un AjouterCours ");
-                Console.WriteLine("E - Créer un étudiant");
-                Console.WriteLine("S - Sélectionner un étudiant");
-                Console.WriteLine("N - Ajouter une note à l'étudiant ");
+                Console.WriteLine(" C - Ajouter un AjouterCours ");
+                Console.WriteLine(" E - Créer un étudiant");
+                Console.WriteLine(" S - Sélectionner un étudiant");
+                Console.WriteLine(" N - Ajouter une note à l'étudiant ");
 
-                Console.WriteLine("X - Quitter le programme");
+                Console.WriteLine(" X - Quitter le programme");
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
                 Selection = Console.ReadLine();
@@ -465,7 +465,7 @@ namespace Exam_AQL
                     NumeroCours = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
-                    Console.Write("Code: ");
+                    Console.Write("Numero de l'etudiant: ");
                     NumeroEtudiant= int.Parse(Console.ReadLine());
 
                     Console.WriteLine();
