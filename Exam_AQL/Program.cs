@@ -364,6 +364,7 @@ namespace Exam_AQL
                                         Console.WriteLine();
                                         Console.Write("Étudiant Sélectionné : ");
                                         Console.Write(line);
+                                        Console.WriteLine();
                                         
 
                                     }
