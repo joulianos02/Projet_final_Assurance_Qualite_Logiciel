@@ -79,8 +79,6 @@ namespace Exam_AQL
             }
             if (File.Exists(FichierNotes))
             {
-
-            
                 //Supression du fichier note//
                 while (SupressionNotes != yes)
                 {
