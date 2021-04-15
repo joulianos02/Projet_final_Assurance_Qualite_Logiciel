@@ -8,9 +8,14 @@ namespace Exam_AQL
     class Note
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         
 
         string FichierEtudiants = @"C:\Users\Public\Etudiants.txt";
+=======
+        string FichierNotes = @"C:\Users\Public\Notes.txt";
+        string FichierEtudiant_Note = @"C:\Users\Public\Etudiant1_cours1.txt";
+>>>>>>> Stashed changes
 =======
         string FichierNotes = @"C:\Users\Public\Notes.txt";
         string FichierEtudiant_Note = @"C:\Users\Public\Etudiant1_cours1.txt";
@@ -65,6 +70,9 @@ namespace Exam_AQL
 =======
         }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
        public static class FileInfoExtensions
