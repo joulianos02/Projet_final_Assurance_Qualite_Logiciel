@@ -322,7 +322,6 @@ namespace Exam_AQL
                     Console.WriteLine("Vous pouvez selectionner un étudiant avec son  numéro d'étudiant");
                     Console.WriteLine();
                     Console.Write("Veuillez entrer le numéro d'étudiant : ");
-                    Console.WriteLine();
                  
                     try
                     {
@@ -353,15 +352,13 @@ namespace Exam_AQL
                         {
                               while (!srNote.EndOfStream)
                                 {
-                                    var line2 = srNote.ReadLine();
-                                    if (line2.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                    var lineNote = srNote.ReadLine();
+                                    int CompteurNote = 0;
+                                    if (lineNote.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
                                     {
                                         Console.WriteLine();
-                                        Console.WriteLine("Notes :");
-                                        Console.WriteLine(line2);
-                                        Console.WriteLine();
-                                        Console.WriteLine("Veuiller entrer a nouveau le numero etudiant Pour avoir acces au cours : ");
-                                        numEtudiant = int.Parse(Console.ReadLine() ?? FichierNotes);
+                                        Console.WriteLine("Note :");
+                                        Console.WriteLine(lineNote);
                                         Console.WriteLine();
                                         
 
@@ -369,15 +366,13 @@ namespace Exam_AQL
                                     else if (srNote.EndOfStream )
                                     {
                                         Console.WriteLine();
-                                        Console.WriteLine("Notes :");
+                                        Console.WriteLine("Note :");
                                         Console.WriteLine("L'étudiant n'a pas de note attribuée.");
                                     
                                     }   
                                
                               }
                         }
-
-                    
 
                         using (var srCours = new StreamReader(FichierCours))
 
