@@ -291,47 +291,46 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (CreerEtudiant.Length / 2)) + "}", CreerEtudiant));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Prénom : ");
-                    try
+                    Prenom = Console.ReadLine();
+                    if (string.IsNullOrEmpty(Prenom))
                     {
-                        Prenom = Console.ReadLine();
+                        Console.WriteLine("Le prénom ne peux pas être vide.");
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.Write("Nom : ");
+                        Nom = Console.ReadLine();
+                        if (string.IsNullOrEmpty(Nom))
+                        {
+                            Console.WriteLine("Le prénom ne peux pas être vide.");
+                        }
+                        else
+                        {
                             Console.WriteLine();
-                            Console.Write("Nom : ");
+                            Console.Write("Numéro Étudiant : ");
                             try
                             {
-                                Nom = Console.ReadLine();
-                                Console.WriteLine();
-                                Console.Write("Numéro Étudiant : ");
-                                try
+                                Numero = int.Parse(Console.ReadLine());
+
+                                if (Numero > 9999999 || Numero < 1000000)
                                 {
-                                    Numero = int.Parse(Console.ReadLine());
-                 
-                                    if (Numero > 9999999 || Numero < 1000000)
-                                    {
-                                        Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
-                                    }
-                                    else if (Numero <= 9999999 || Numero >= 1000000)
-                                    {
-                                        Console.WriteLine();
-                                        Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
-                                        Console.WriteLine("Étudiant Sauvegardé");
-                                        Thread.Sleep(deuxSecondes);
-                                    }
-                         
+                                    Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
                                 }
-                                catch
+                                else if (Numero <= 9999999 || Numero >= 1000000)
                                 {
-                                    Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
+                                    Console.WriteLine();
+                                    Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
+                                    Console.WriteLine("Étudiant Sauvegardé");
+                                    Thread.Sleep(deuxSecondes);
                                 }
-                                    
+
                             }
                             catch
                             {
-                                Console.WriteLine("Veuiller entrer un nom de famille valide.");
+                                Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
                             }
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Veuiller entrer un prénom valide.");
+                        }
                     }
 
                 }
@@ -425,7 +424,6 @@ namespace Exam_AQL
                                         Console.WriteLine();
                                         Console.WriteLine("Cours :");
                                         Console.WriteLine("L'étudiant n'a pas de Cours attribuée.");
-                                        Console.WriteLine("Rentrer de nouveau le Numero Etudiant Pour avoir acces au cours");
 
                                     }
                                 }
@@ -458,7 +456,9 @@ namespace Exam_AQL
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (AjouterNote.Length / 2)) + "}", AjouterNote));
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Veuillez entrer le numéro de l'étudiant auquel vous souhaitez assigner une note : ");
-                    numEtudiant = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        numEtudiant = int.Parse(Console.ReadLine());
                     if (numEtudiant > 9999999 || numEtudiant < 1000000)
                     {
                         Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
@@ -543,6 +543,12 @@ namespace Exam_AQL
                         Console.WriteLine("Erreur dans l'assignation du numéro étudiant. Veuillez réessayer");
                         Thread.Sleep(deuxSecondes);
                     }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Le numéro d'étuidant est invalide.");
+                    }
+                    
                 }
                 /*************************************************************************************************************************************************/
                 /*Ajouter un Cours à un étudiant*/
@@ -551,6 +557,9 @@ namespace Exam_AQL
                     int NumeroEtudiant;
                     int NumeroCours;
                     string TitreDuCours;
+                    string EtudiantSelectionne = "";
+                    string SelectionEtudiant = "f";
+                    string SelectionCours = "";
 
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
@@ -559,25 +568,86 @@ namespace Exam_AQL
 
                     Console.WriteLine();
                     Console.Write("Numero Etudiant: ");
-                    NumeroEtudiant = int.Parse(Console.ReadLine());
-                    if (NumeroEtudiant > 9999999 || NumeroEtudiant < 1000000)
+                    try
                     {
-                        Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
+                        NumeroEtudiant = int.Parse(Console.ReadLine());
+                        if (NumeroEtudiant > 9999999 || NumeroEtudiant < 1000000)
+                        {
+                            Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
+                        }
+                        else if (NumeroEtudiant <= 9999999 || NumeroEtudiant >= 1000000)
+                        {
+
+                            using (var srEtudiant = new StreamReader(FichierEtudiants))
+                            {
+                                while (!srEtudiant.EndOfStream)
+                                {
+                                    var line = srEtudiant.ReadLine();
+                                    if (line.IndexOf(NumeroEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                    {
+                                        Console.WriteLine();
+                                        Console.Write("Étudiant Sélectionné : ");
+                                        Console.Write(line);
+                                        EtudiantSelectionne = line;
+                                        Console.WriteLine();
+                                        SelectionEtudiant = "t";
+
+                                    }
+                                    else if (srEtudiant.EndOfStream)
+                                    {
+                                        Console.WriteLine("L'étudiant n'a pas été trouvé.");
+                                    }
+                                }
+                            }
+                            if (SelectionEtudiant == "t")
+                            {
+                                Console.Write("Numéro du cours : ");
+                                try
+                                {
+                                    NumeroCours = int.Parse(Console.ReadLine()?? FichierCours);
+                                    using (var srCours = new StreamReader(FichierCours))
+                                    {
+                                        while (!srCours.EndOfStream)
+                                        {
+                                            var line = srCours.ReadLine();
+                                            if (line.IndexOf(NumeroEtudiant.ToString() + ", " + NumeroCours.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                            {
+                                                Console.WriteLine();
+                                                Console.WriteLine("Le cours " + NumeroCours + " pour l'étudiant " + EtudiantSelectionne + " existe déjà.");
+                                                Console.WriteLine("Veuillez créer un autre cours");
+                                                SelectionCours = "f";
+                                            }
+                                            else if (srCours.EndOfStream)
+                                            {
+                                                SelectionCours = "t";
+                                            }
+                                        }
+                                    }
+                                    if (SelectionCours == "t")
+                                    {
+                                        Console.WriteLine();
+                                        Console.Write("Titre du cours : ");
+                                        TitreDuCours = (Console.ReadLine());
+                                        Console.WriteLine();
+                                        Cours cours = new Cours(NumeroEtudiant, NumeroCours, TitreDuCours);
+                                        Console.WriteLine("Le cours a été sauvegardé avec succès.");
+                                    }
+
+                                }
+                                catch
+                                {
+                                    Console.WriteLine("Le numéro du cours doit être des chiffres.");
+                                }
+                            
+                            }
+                        
+                        }
                     }
-                    else if (NumeroEtudiant <= 9999999 || NumeroEtudiant >= 1000000)
+                    catch
                     {
-
+                        Console.WriteLine("Veuillez entrer un numéro d'étudiant valide.");
                     }
 
-                        Console.Write("Numero du cour : ");
-                    NumeroCours = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine();
-                    Console.Write("Titre du cours : ");
-                    TitreDuCours = (Console.ReadLine());
-
-                    Cours cours= new Cours(NumeroEtudiant,NumeroCours, TitreDuCours);
-                    Console.WriteLine("Le cours a été sauvegardé avec succès.");
                 }
                 /*************************************************************************************************************************************************/
                 /*Quitter le programme*/
