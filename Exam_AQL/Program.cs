@@ -278,7 +278,7 @@ namespace Exam_AQL
                 {
                     String Prenom;
                     String Nom;
-                    int Numero;
+                    int Numero = 0;
                     Console.Clear();
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                     Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (CreerEtudiant.Length / 2)) + "}", CreerEtudiant));
@@ -297,23 +297,34 @@ namespace Exam_AQL
                                 try
                                 {
                                     Numero = int.Parse(Console.ReadLine());
-                                    Console.WriteLine();
-                                    Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
-                                    Console.WriteLine("Étudiant Sauvegardé");
+                 
+                                    if (Numero > 9999999 || Numero < 1000000)
+                                    {
+                                        Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
+                                    }
+                                    else if (Numero <= 9999999 || Numero >= 1000000)
+                                    {
+                                        Console.WriteLine();
+                                        Etudiant etudiant = new Etudiant(Numero, Prenom, Nom);
+                                        Console.WriteLine("Étudiant Sauvegardé");
+                                        Thread.Sleep(deuxSecondes);
+                                    }
+                         
                                 }
                                 catch
                                 {
-                                    Console.WriteLine("Veuiller entrer un nom de famille valide.");
+                                    Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
                                 }
+                                    
                             }
                             catch
                             {
-                                Console.WriteLine("Veuiller entrer un prénom valide.");
+                                Console.WriteLine("Veuiller entrer un nom de famille valide.");
                             }
                     }
                     catch
                     {
-                        Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
+                        Console.WriteLine("Veuiller entrer un prénom valide.");
                     }
 
                 }
