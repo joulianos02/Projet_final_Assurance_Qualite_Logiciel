@@ -219,7 +219,8 @@ namespace Exam_AQL
                 Console.WriteLine();
                 Console.Write("Veuillez entrer votre commande : ");
                 Selection = Console.ReadLine();
-
+                /*************************************************************************************************************************************************/
+                /*Afficher tous les étudiants*/
                 if (Selection.ToLower() == "ae")
                 {
 
@@ -238,6 +239,8 @@ namespace Exam_AQL
                     }
                     Console.WriteLine();
                 }
+                /*************************************************************************************************************************************************/
+                /*Afficher toutes les notes*/
                 else if (Selection.ToLower() == "an")
                 {
 
@@ -256,6 +259,8 @@ namespace Exam_AQL
                     }
                     Console.WriteLine();
                 }
+                /*************************************************************************************************************************************************/
+                /*Afficher tous les cours*/
                 else if (Selection.ToLower() == "ac")
                 {
 
@@ -274,6 +279,8 @@ namespace Exam_AQL
                     }
                     Console.WriteLine();
                 }
+                /*************************************************************************************************************************************************/
+                /*Création d'un étudiant*/
                 else if (Selection.ToLower() == "e")
                 {
                     String Prenom;
@@ -328,6 +335,8 @@ namespace Exam_AQL
                     }
 
                 }
+                /*************************************************************************************************************************************************/
+                /*Selection de toutes les informations d'un étudiant*/
                 else if (Selection.ToLower() == "s")
                 {
 
@@ -434,6 +443,8 @@ namespace Exam_AQL
                         }
                     
                 }
+                /*************************************************************************************************************************************************/
+                /*Ajouter une note à un étudiant*/
                 else if (Selection.ToLower() == "n")
                 {
                     string identifiant;
@@ -533,6 +544,8 @@ namespace Exam_AQL
                         Thread.Sleep(deuxSecondes);
                     }
                 }
+                /*************************************************************************************************************************************************/
+                /*Ajouter un Cours à un étudiant*/
                 else if (Selection.ToLower() == "c")
                 {
                     int NumeroEtudiant;
@@ -566,11 +579,14 @@ namespace Exam_AQL
                     Cours cours= new Cours(NumeroEtudiant,NumeroCours, TitreDuCours);
                     Console.WriteLine("Le cours a été sauvegardé avec succès.");
                 }
-
+                /*************************************************************************************************************************************************/
+                /*Quitter le programme*/
                 else if (Selection.ToLower() == "x")
                 {
                     break;
                 }
+                /*************************************************************************************************************************************************/
+                /*Message affiché lorsqu'une commande est incorrecte*/
                 else
                 {
                     Console.WriteLine();
