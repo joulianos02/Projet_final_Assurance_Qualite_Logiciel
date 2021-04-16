@@ -519,7 +519,7 @@ namespace Exam_AQL
                                     while (!srCours.EndOfStream) //Recherche du numéro de cours
                                     {
                                         var line = srCours.ReadLine();
-                                        if (line.IndexOf(numEtudiant.ToString(), StringComparison.CurrentCultureIgnoreCase) >= 0)
+                                        if (line.IndexOf(numEtudiant.ToString()+ ", " + NumeroCours, StringComparison.CurrentCultureIgnoreCase) >= 0)
                                         {
                                             Console.WriteLine();
                                             Console.Write("Cours Sélectionné : ");
