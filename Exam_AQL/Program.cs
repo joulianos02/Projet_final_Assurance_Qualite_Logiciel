@@ -531,6 +531,7 @@ namespace Exam_AQL
                                 }
                                 else
                                 {
+                                /*utilisation de Thread.Sleep pour ajoute un temps mort deux seconde*/
                                 Thread.Sleep(deuxSecondes);
                                 }
                                 
