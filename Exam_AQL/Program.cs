@@ -202,6 +202,7 @@ namespace Exam_AQL
 
             while (Selection.ToLower() != "X") //Boucle while afin de permettre l'éxecution du programme j'usqu'a ce que                        
             {                        //l'utilisateur entre x.
+                //affichage des commande danns la console//
                 Console.Clear();
                 Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Titre.Length / 2)) + "}", Titre));
                 Console.WriteLine("________________________________________________________________________________________________________________________");
@@ -283,6 +284,7 @@ namespace Exam_AQL
                 /*Création d'un étudiant*/
                 else if (Selection.ToLower() == "e")
                 {
+                    //inisialise les variable de la class etudiant//
                     String Prenom;
                     String Nom;
                     int Numero = 0;
@@ -309,6 +311,7 @@ namespace Exam_AQL
                         {
                             Console.WriteLine();
                             Console.Write("Numéro Étudiant : ");
+                            //utilisation de try pour s'assurer lors de l'execution du code suceptible d'erreur de l'enfermer dans le block try//
                             try
                             {
                                 Numero = int.Parse(Console.ReadLine());
@@ -326,6 +329,7 @@ namespace Exam_AQL
                                 }
 
                             }
+                            //utilisation de catch pour intercepter l'exception avec catch
                             catch
                             {
                                 Console.WriteLine("Veuiller entrer un numéro d'étudiant valide.");
@@ -347,11 +351,11 @@ namespace Exam_AQL
                     Console.WriteLine("Vous pouvez selectionner un étudiant avec son  numéro d'étudiant");
                     Console.WriteLine();
                     Console.Write("Veuillez entrer le numéro d'étudiant : ");
-                 
+                    //utilisation de try pour s'assurer lors de l'execution du code suceptible d'erreur de l'enfermer dans le block try//
                     try
                     {
                         int numEtudiant = int.Parse(Console.ReadLine()?? FichierEtudiants);
-
+                    /*utilisation du if else Pour ne pas avoir un chiffre plus haut que 7 quannd on entre le NumeroEtudiant */
                         if (numEtudiant > 9999999 || numEtudiant < 1000000)
                         {
                             Console.WriteLine("Le numéro étudiant doir être de 7 chiffres");
@@ -378,7 +382,7 @@ namespace Exam_AQL
                                     }
                                 }
                             }
-
+                            /* utiliser pour aller chercher et afficher les information des etudiant dans le ficherNote*/
                             using (var srNote = new StreamReader(FichierNotes))
 
                             {
@@ -404,7 +408,7 @@ namespace Exam_AQL
 
                                 }
                             }
-
+                            /* utiliser pour aller chercher et afficher les information des etudiant dans le ficherCours*/
                             using (var srCours = new StreamReader(FichierCours))
 
                             {
@@ -430,13 +434,14 @@ namespace Exam_AQL
                             }                           
                         }
                         else
+                        /*Affiche un message d'erreur quand le numero d'etudiant est incorect*/
                         {
                             Console.WriteLine("Error le numero d'etudiant est incorect");
                         }
                     }
-                          
-                        catch
-                        {
+                    //utilisation de catch pour intercepter l'exception avec catch 
+                    catch
+                    {
                             Console.WriteLine("Erreur. Ceci n'est pas un numéro d'étudiant");
                         }
                     
@@ -457,6 +462,7 @@ namespace Exam_AQL
                     Console.WriteLine("________________________________________________________________________________________________________________________");
                     Console.Write("Veuillez entrer le numéro de l'étudiant auquel vous souhaitez assigner une note : ");
                     try
+                    /*utilisation du if else Pour ne pas avoir un chiffre plus haut que 7 quannd on entre le NumeroEtudiant */
                     {
                         numEtudiant = int.Parse(Console.ReadLine());
                     if (numEtudiant > 9999999 || numEtudiant < 1000000)
@@ -486,6 +492,7 @@ namespace Exam_AQL
                         }
                         if (SelectionEtudiant == "t")
                         {
+                        
                             Console.WriteLine();
                             Console.Write("Numero de Cours : ");
                             NumeroCours = int.Parse(Console.ReadLine()?? FichierCours);
@@ -570,6 +577,7 @@ namespace Exam_AQL
                     Console.Write("Numero Etudiant: ");
                     try
                     {
+
                         NumeroEtudiant = int.Parse(Console.ReadLine());
                         if (NumeroEtudiant > 9999999 || NumeroEtudiant < 1000000)
                         {
@@ -577,7 +585,7 @@ namespace Exam_AQL
                         }
                         else if (NumeroEtudiant <= 9999999 || NumeroEtudiant >= 1000000)
                         {
-
+                            /* utiliser pour aller chercher et afficher les information des etudiant dans le ficherEtudiant*/
                             using (var srEtudiant = new StreamReader(FichierEtudiants))
                             {
                                 while (!srEtudiant.EndOfStream)
